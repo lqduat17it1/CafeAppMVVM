@@ -13,7 +13,7 @@ public partial class ReceiptModel
 
     public double? TotalReceipt { get; set; }
 
-    public int? TableId { get; set; }
+    public int TableId { get; set; }
 
     public string? TableName { get; set; }
 
@@ -27,13 +27,13 @@ public partial class ReceiptModel
 
     public int Rdid { get; set; }
 
-    public int? MenuId { get; set; }
+    public int MenuId { get; set; }
 
     public string? MenuName { get; set; }
 
-    public int? Quantity { get; set; }
+    public int Quantity { get; set; }
 
-    public int? Discount { get; set; }
+    public int Discount { get; set; }
 
     public double? Price { get; set; }
 

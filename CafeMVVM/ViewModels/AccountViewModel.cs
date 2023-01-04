@@ -21,11 +21,11 @@ namespace CafeMVVM.ViewModels
         List<AccountModel> _AccountList;
         AccountDAL AccountDAL = new AccountDAL();
         AccountModel _SelectedAccount;
-        private Boolean _ADMIN;
-        private Boolean _USER;
-        private string _USERNAME;
-        private string _PASSWORD;
-        private string _FULLNAME;
+        private Boolean _Admin;
+        private Boolean _User;
+        private string _Username;
+        private string _Password;
+        private string _FullName;
         private string _Status;
         public ICommand AddNewAccountCommand { get; set; }
         public ICommand DeleteAccountCommand { get; set; }
@@ -35,15 +35,15 @@ namespace CafeMVVM.ViewModels
         public ICommand LoginCommand { get; set; }
         public List<AccountModel> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged("AccountList"); } }
 
-        public string USERNAME { get { return _USERNAME; } set { _USERNAME = value; OnPropertyChanged("USERNAME"); } }
+        public string Username { get { return _Username; } set { _Username = value; OnPropertyChanged("Username"); } }
 
-        public string PASSWORD { get { return _PASSWORD; } set { _PASSWORD = value; OnPropertyChanged("PASSWORD"); } }
+        public string Password { get { return _Password; } set { _Password = value; OnPropertyChanged("Password"); } }
 
-        public bool ADMIN { get { return _ADMIN; } set { _ADMIN = value; OnPropertyChanged("ADMIN"); } }
+        public bool Admin { get { return _Admin; } set { _Admin = value; OnPropertyChanged("Admin"); } }
 
-        public bool USER { get { return _USER; } set { _USER = value; OnPropertyChanged("USER"); } }
+        public bool User { get { return _User; } set { _User = value; OnPropertyChanged("User"); } }
 
-        public string FULLNAME { get { return _FULLNAME; } set { _FULLNAME = value; OnPropertyChanged("FULLNAME"); } }
+        public string FullName { get { return _FullName; } set { _FullName = value; OnPropertyChanged("FullName"); } }
 
         public AccountModel SelectedAccount { get { return _SelectedAccount; } set { _SelectedAccount = value; } }
 
@@ -51,7 +51,7 @@ namespace CafeMVVM.ViewModels
 
         public AccountViewModel()
         {
-            USERNAME = "";
+            Username = "";
             AccountList = AccountDAL.LoadAccount();
             bool AdminRole = false, UserRole = false;
             rdAdmin = new RelayCommand<RadioButton>((p) => true, (p) =>
@@ -82,11 +82,11 @@ namespace CafeMVVM.ViewModels
             });
             AddNewAccountCommand = new RelayCommand<PasswordBox>((p) => true, (p) =>
             {
-                if (FULLNAME == null || FULLNAME == "")
+                if (FullName == null || FullName == "")
                 {
                     MessageBox.Show(GetResource("FullNameHasNotBeenEntered"), GetResource("WarningText"), MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else if (USERNAME == null || USERNAME == "")
+                else if (Username == null || Username == "")
                 {
                     MessageBox.Show(GetResource("UsernameHasNotBeenEntered"), GetResource("WarningText"), MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -105,9 +105,9 @@ namespace CafeMVVM.ViewModels
                     {
 
                         AccountModel accountModel = new AccountModel();
-                        accountModel.Username = USERNAME;
+                        accountModel.Username = Username;
                         accountModel.Password = encode(p.Password);
-                        accountModel.FullName = FULLNAME;
+                        accountModel.FullName = FullName;
                         if (AdminRole == true)
                         {
                             accountModel.Role = "Admin";
@@ -118,9 +118,9 @@ namespace CafeMVVM.ViewModels
                         }
                         AccountDAL.AddNewAccount(accountModel);
                         AccountList = AccountDAL.LoadAccount();
-                        USERNAME = "";
+                        Username = "";
                         p.Password = "";
-                        FULLNAME = "";
+                        FullName = "";
                     }
                     catch
                     {
@@ -150,7 +150,7 @@ namespace CafeMVVM.ViewModels
             {
                 if (SelectedAccount == null)
                 {
-                    MessageBox.Show(GetResource(""), "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(GetResource("PleaseSelectTheAccountOnTheListToResetThePassword"), GetResource("InformationText"), MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {
@@ -166,7 +166,7 @@ namespace CafeMVVM.ViewModels
             });
             LoginCommand = new RelayCommand<PasswordBox>((p) => true, (p) =>
             {
-                if (USERNAME == null || USERNAME == "")
+                if (String.IsNullOrEmpty(Username))
                 {
                     Status = GetResource("UsernameNotEntered");
                 }
@@ -177,14 +177,14 @@ namespace CafeMVVM.ViewModels
                 else
                 {
                     AccountModel accountModel = new AccountModel();
-                    accountModel.Username = USERNAME;
+                    accountModel.Username = Username;
                     List<AccountModel> AccountList = new List<AccountModel>();
                     AccountList = AccountDAL.LoginCheck(accountModel);
                     if (AccountList.Count > 0)
                     {
                         if (encode(p.Password) == AccountList[0].Password)
                         {
-                            //BienDungChung.idnhanvien = AccountList[0].USERNAME;
+                            //BienDungChung.idnhanvien = AccountList[0].Username;
                             MainWindow.mainWindow.GrantPermission(AccountList[0].Role);
                             //PageNen.pnen.setquyen(AccountList[0].HOFULLNAME, AccountList[0].QUYEN);
                             LoginWindow.loginWindow.Close();

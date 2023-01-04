@@ -4,7 +4,8 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Lang-en">Tiếng Anh</system:String>
     <system:String x:Key="Lang-vi">Tiếng Việt</system:String>
-    
+
+    <system:String x:Key="OrderTabName">PHỤC VỤ</system:String>
     <system:String x:Key="AreaTabName">KHU VỰC</system:String>
     <system:String x:Key="TableTabName">BÀN</system:String>
     <system:String x:Key="MenuTabName">THỰC ĐƠN</system:String>
@@ -48,8 +49,138 @@
     <system:String x:Key="SelectAnAreaToDelete">Chọn một khu vực để xóa</system:String>
     <system:String x:Key="EnterTheAreaNameToAdd">Nhập tên khu vực cần thêm</system:String>
     <system:String x:Key="HaveNotSelectedAnAreaToAddATableYet">Chưa chọn khu vực để thêm bàn</system:String>
+    <system:String x:Key="HaveNotSelectedAnArea">Chưa chọn khu vực</system:String>
     <system:String x:Key="HaveNotEnteredTheAmountYouNeedToAdd">Chưa nhập số lượng bạn cần thêm</system:String>
     <system:String x:Key="SelectTheTableOnTheListToDelete">Chọn bàn trên danh sách để xóa</system:String>
     <system:String x:Key="SelectTheTableOnTheListToEdit">Chọn bàn trên danh sách để sửa</system:String>
     <system:String x:Key="TheTableNameHasNotBeenEntered">Chưa nhập tên bàn</system:String>
+
+    <!-- AddNewArlert-->
+    <system:String x:Key="TextReceipt">Hóa đơn</system:String>
+    <system:String x:Key="TextTotalPrice">Tổng tiền hóa đơn</system:String>
+    <system:String x:Key="EmptyRecept">Hóa đơn trống</system:String>
+    <system:String x:Key="NotSelTbYet">Chưa chọn bàn</system:String>
+    <system:String x:Key="SelDisToDel">Chọn món trên danh sách để xóa</system:String>
+    <system:String x:Key="NotSelTabToMove">Chưa chọn bàn cần chuyển</system:String>
+    <system:String x:Key="NotSelMergeTb">Chưa chọn bàn gộp</system:String>
+    <system:String x:Key="NotSelTabToMerge">Chưa chọn bàn muốn gộp</system:String>
+    <system:String x:Key="NotSelEmptyTab">Chưa chọn bàn trống</system:String>
+    <system:String x:Key="NotSelDisToDiscount">Chưa chọn món cần giảm</system:String>
+    <system:String x:Key="DiscountCantBeMinus">Giảm giá không được âm</system:String>
+    <system:String x:Key="CantDiscountMoreThan100">Giảm giá không lớn hơn 100%</system:String>
+    <system:String x:Key="NotSelDisTobeUnDiscount">Chưa chọn món gỡ bỏ giảm giá</system:String>
+    <system:String x:Key="NotSelDate">Chưa chọn ngày.</system:String>
+    <system:String x:Key="NotSelMonth">Chưa chọn tháng.</system:String>
+    <system:String x:Key="NotSelSpecificeDate">Chưa chọn ngày cụ thể.</system:String>
+    <system:String x:Key="NotSelTimeToStatistic">Chưa chọn thời gian cần thống kê</system:String>
+    <system:String x:Key="NotEnterCate">Chưa nhập tên danh mục</system:String>
+    <system:String x:Key="SelCateToDel">Chọn danh mục trên để xóa</system:String>
+    <system:String x:Key="DelCate">Xóa danh mục</system:String>
+    <system:String x:Key="SelCateToDisplayDisc">Chọn danh mục để hiển thị món</system:String>
+    <system:String x:Key="NotSelDisToAdd">Chưa nhập món cần thêm</system:String>
+    <system:String x:Key="NotInputPrice">Chưa nhập đơn giá</system:String>
+    <system:String x:Key="SelFoodToDel">Chọn món phía trên để xóa</system:String>
+    <system:String x:Key="SelDisToEdit">Chọn món để sửa</system:String>
+    <system:String x:Key="SelCateToDiscount">Chọn danh mục thực đơn cần giảm giá</system:String>
+
+
+    <!-- Tooltip-->
+    <system:String x:Key="TooltipForWaiter">Dành cho nhân viên phục vụ</system:String>
+    <system:String x:Key="TooltipAddArea">Thêm khu vực cho quán</system:String>
+    <system:String x:Key="TooltipAddTabForArea">Thêm bàn cho khu vực</system:String>
+    <system:String x:Key="TooltipAddCateAndDisc">Thêm danh mục và món</system:String>
+    <system:String x:Key="TooltipDiscount">GIẢM GIÁ</system:String>
+    <system:String x:Key="TooltipValueGet">Thống kê danh thu</system:String>
+    <system:String x:Key="TooltipManageAccount">Quản lý tài khoản</system:String>
+    <system:String x:Key="TooltipLogOut">Đăng xuất</system:String>
+    <system:String x:Key="TooltipShutDown">Tắt chương trình</system:String>
+    <system:String x:Key="TooltipMenu">Danh mục thực đơn</system:String>
+    <system:String x:Key="TooltipEnterArea">Nhập tên khu vực cần thêm</system:String>
+    <system:String x:Key="TooltipName">Họ Tên</system:String>
+    <system:String x:Key="TooltipAccountName">Tên đăng nhập</system:String>
+    <system:String x:Key="TooltipPass">Mật khẩu</system:String>
+    <system:String x:Key="TooltipEnterTbName">Nhập tên bàn</system:String>
+    <system:String x:Key="TooltipInputCate">Nhập danh mục món</system:String>
+    <system:String x:Key="TooltipInputDiscName">Nhập tên món</system:String>
+    <system:String x:Key="TooltipInputPrice">Nhập đơn giá</system:String>
+
+
+    <!-- Label-->
+    <system:String x:Key="LabelWaiter">PHỤC VỤ</system:String>
+    <system:String x:Key="LabelArea">KHU VỰC</system:String>
+    <system:String x:Key="LabelTable">BÀN</system:String>
+    <system:String x:Key="LabelMenu">THỰC ĐƠN</system:String>
+    <system:String x:Key="LabelDiscount">GIẢM GIÁ</system:String>
+    <system:String x:Key="LabelValueget">THỐNG KÊ</system:String>
+    <system:String x:Key="LabelAccount">TÀI KHOẢN</system:String>
+    <system:String x:Key="LabelLogOut">ĐĂNG XUẤT</system:String>
+    <system:String x:Key="LabelShutDown">THOÁT</system:String>
+    <system:String x:Key="LabelSelAreaAddTab">Chọn khu vực để thêm bàn</system:String>
+    <system:String x:Key="LabelAddTabNum">Nhập số lượng bàn cần thêm</system:String>
+    <system:String x:Key="LabelSelectTabMove">Chọn bàn cần chuyển</system:String>
+    <system:String x:Key="LabelEmptyTab">Bàn còn trống</system:String>
+    <system:String x:Key="LabelLogin">Đăng nhập vào hệ thống</system:String>
+    <system:String x:Key="LabelAccountName">Tên đăng nhập</system:String>
+    <system:String x:Key="LabelPassword">Mật khẩu</system:String>
+    <system:String x:Key="LabelInputDiscount">Nhập số % cần giảm:</system:String>
+    <system:String x:Key="LabelSelectTbMerge">Chọn bàn cần gộp</system:String>
+    <system:String x:Key="LabelMergeTb">Bàn gộp</system:String>
+    <system:String x:Key="LabelStatisByDisc">Thống kê theo Món</system:String>
+    <system:String x:Key="LabelGetMoney">Thống kê Doanh Thu</system:String>
+    <system:String x:Key="LabelNotice">Đây là thông báo nội dung của chường trình</system:String>
+
+    <!-- Str-->
+    <system:String x:Key="StrTbCate">BanDanhMuc</system:String>
+    <system:String x:Key="StrTbNum">SOLUONGBAN</system:String>
+    <system:String x:Key="StrTbName">TENBAN</system:String>
+
+
+    <!-- Header-->
+    <system:String x:Key="HeaderTabName">Tên bàn</system:String>
+    <system:String x:Key="HeaderAreaName">Tên khu vực</system:String>
+    <system:String x:Key="HeaderStatus">Trạng thái</system:String>
+    <system:String x:Key="HeaderDisc">Món</system:String>
+    <system:String x:Key="HeaderPrice">Đơn giá</system:String>
+    <system:String x:Key="HeaderNumber">Số lượng</system:String>
+    <system:String x:Key="HeaderDiscount">Giảm giá (%)</system:String>
+    <system:String x:Key="HeaderDisName">Tên món</system:String>
+    <system:String x:Key="HeaderArea">Khu vực</system:String>
+    <system:String x:Key="HeaderTbNum">Số lượng bàn</system:String>
+    <system:String x:Key="HeaderAccName">Tên tài khoản</system:String>
+    <system:String x:Key="HeaderName">Họ tên</system:String>
+    <system:String x:Key="HeaderPass">Mật khẩu</system:String>
+    <system:String x:Key="HeaderPermission">Quyền sử dụng</system:String>
+    <system:String x:Key="HeaderTb">Bàn</system:String>
+    <system:String x:Key="HeaderTotalPrice">Tổng tiền</system:String>
+    <system:String x:Key="HeaderDay">Ngày</system:String>
+    <system:String x:Key="HeaderTime">Giờ</system:String>
+    <system:String x:Key="HeaderCateName">Tên danh mục</system:String>
+
+
+    <!-- Btn-->
+    <system:String x:Key="BtnExit">Thoát</system:String>
+    <system:String x:Key="BtnMove">Chuyển</system:String>
+    <system:String x:Key="BtnLogIn">Đăng Nhập</system:String>
+    <system:String x:Key="BtnUpdate">Cập nhật</system:String>
+    <system:String x:Key="BtnCancel">Gỡ bỏ</system:String>
+    <system:String x:Key="BtnMerge">Gộp</system:String>
+    <system:String x:Key="BtnFindEmpArea">Tìm khu vực có bàn trống</system:String>
+    <system:String x:Key="BtnDelDisc">Xóa món</system:String>
+    <system:String x:Key="BtnMoveTab">Chuyển bàn</system:String>
+    <system:String x:Key="BtnPay">Thanh toán</system:String>
+    <system:String x:Key="BtnAdd">Thêm</system:String>
+    <system:String x:Key="BtnAdmin">Admin</system:String>
+    <system:String x:Key="BtnUser">User</system:String>
+    <system:String x:Key="BtnCreate">Tạo</system:String>
+    <system:String x:Key="BtnResetPass">Reset mật khẩu</system:String>
+    <system:String x:Key="BtnDelete">Xóa</system:String>
+    <system:String x:Key="BtnSave">Lưu</system:String>
+    <system:String x:Key="BtnSelDate">Chọn ngày</system:String>
+    <system:String x:Key="BtnSelMonth">Chọn tháng</system:String>
+    <system:String x:Key="BtnSelSpecificDate">Chọn ngày cụ thể</system:String>
+    <system:String x:Key="BtnByDay">Theo Ngày</system:String>
+    <system:String x:Key="BtnByMonth">Theo Tháng</system:String>
+    <system:String x:Key="BtnSpecificDate">Ngày cụ thể</system:String>
+    <system:String x:Key="BtnView">Xem</system:String>
+    <system:String x:Key="BtnEdit">Sửa</system:String>
 </ResourceDictionary>

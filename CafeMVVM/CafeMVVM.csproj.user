@@ -13,7 +13,16 @@
     <Compile Update="Views\AreaPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ChangeTableWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DiscountPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EditTableWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EmptyTableAreaWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LoginWindow.xaml.cs">
@@ -22,10 +31,19 @@
     <Compile Update="Views\MenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MergeTableWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ReceiptDetailWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SettingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\StatisticsPage.xaml.cs">
+    <Compile Update="Views\StatisticPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TablePage.xaml.cs">
@@ -51,7 +69,16 @@
     <Page Update="Views\AreaPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ChangeTableWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DiscountPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EditTableWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EmptyTableAreaWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginWindow.xaml">
@@ -60,10 +87,19 @@
     <Page Update="Views\MenuPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\MergeTableWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ReceiptDetailWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\SettingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\StatisticsPage.xaml">
+    <Page Update="Views\StatisticPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TablePage.xaml">

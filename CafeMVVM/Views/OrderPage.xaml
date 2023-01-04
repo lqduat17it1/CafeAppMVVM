@@ -1,0 +1,290 @@
+﻿<Page x:Class="CafeMVVM.Views.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CafeMVVM.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="OrderPage">
+    <Page.DataContext>
+        <local:TableAreaViewModel></local:TableAreaViewModel>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <local:ColorConvert x:Key="ColorConvert"></local:ColorConvert>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Grid.Row="0">
+            <Label Height="20"></Label>
+        </materialDesign:ColorZone>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <TextBlock x:Key="HeaderAreaStyle" Text="{DynamicResource HeaderArea}" />
+                <TextBlock x:Key="HeaderTabNameStyle" Text="{DynamicResource HeaderTabName}" />
+                <TextBlock x:Key="HeaderStatusStyle" Text="{DynamicResource HeaderStatus}" />
+                <TextBlock x:Key="HeaderDisNameStyle" Text="{DynamicResource HeaderDisName}" />
+                <TextBlock x:Key="HeaderDisNameStyle2" Text="{DynamicResource HeaderDisName}" />
+                <TextBlock x:Key="HeaderPriceStyle" Text="{DynamicResource HeaderPrice}" />
+                <TextBlock x:Key="HeaderPriceStyle2" Text="{DynamicResource HeaderPrice}" />
+                <TextBlock x:Key="HeaderDiscountStyle" Text="{DynamicResource HeaderDiscount}" />
+                <TextBlock x:Key="HeaderNumberStyle" Text="{DynamicResource HeaderNumber}" />
+            </Grid.Resources>
+            <Grid  Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Margin="5,5,5,5" IsReadOnly="True" Grid.Row="1" ItemsSource="{Binding Area,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Yellow" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn  Header="{StaticResource HeaderAreaStyle}">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label HorizontalContentAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15" Content="{Binding AreaName}"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid  Grid.Column="1" Width="210" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Margin="5,5,5,5" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" ItemsSource="{Binding TableArea,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemTable,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedIndexOfTable}">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Yellow" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*" Header="{StaticResource HeaderTabNameStyle}"  IsReadOnly="True">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label  HorizontalContentAlignment="Center"  FontFamily="Segoe UI" FontSize="15"  Content="{Binding TableName}" Foreground="{Binding TableStatus,Converter={StaticResource ColorConvert}}"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="*" Header="{StaticResource HeaderStatusStyle}"  IsReadOnly="True">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" Content="{Binding TableStatus}" Foreground="{Binding TableStatus,Converter={StaticResource ColorConvert}}"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid  HorizontalAlignment="Left" IsEnabled="{Binding EnableGridCategories}"   Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ComboBox Margin="5,5,5,5" HorizontalContentAlignment="Center" ItemsSource="{Binding MenuCategories}" SelectedItem="{Binding SelectedItemMenuCategory,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  DisplayMemberPath="Mcname" FontSize="15" FontWeight="Bold" FontFamily="Segoe UI" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource TooltipMenu}"></ComboBox>
+                <DataGrid Margin="5,5,5,5" IsReadOnly="True" Grid.Row="1" ItemsSource="{Binding Menu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectMenuTable,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Height="440" VerticalAlignment="Bottom">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Yellow" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="{StaticResource HeaderDisNameStyle}" Width="*">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding MenuName}" HorizontalContentAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{StaticResource HeaderPriceStyle}" Width="*">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Price}" HorizontalContentAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{StaticResource HeaderDiscountStyle}" Width="*">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Discount}" HorizontalContentAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="3" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label HorizontalContentAlignment="Center" Content="{Binding ReceiptTitle,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Grid.Row="1"></Label>
+                <DataGrid Margin="5,5,5,5" IsReadOnly="True" ItemsSource="{Binding MenuTableList,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectMenu,Mode=OneWayToSource}" Grid.Row="2" AutoGenerateColumns="False">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Style.Triggers>
+                                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Yellow" />
+                                </Trigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*"  Header="{StaticResource HeaderDisNameStyle2}">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding MenuName}" HorizontalContentAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="*" Header="{StaticResource HeaderPriceStyle2}">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Price}" HorizontalAlignment="Center" Foreground="Black" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="*" Header="{StaticResource HeaderNumberStyle}">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Quantity}" Foreground="Black" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15"></Label>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </Grid>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button Command="{Binding FindEmptyTableCommand}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnFindEmpArea}" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding ReceiptTotal,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Red"></Label>
+            <Button Command="{Binding DeleteMenu}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnDelDisc}" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+            <Button Command="{Binding ChangeTableCommand}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnMoveTab}" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+            <Button Command="{Binding MergedTable}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{DynamicResource LabelMergeTb}" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+            <Button Command="{Binding PaymentCommand}" Margin="5,5,5,5" materialDesign:ShadowAssist.ShadowDepth="Depth5" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnPay}" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -36,9 +36,10 @@
                         </Trigger>
                     </Style.Triggers>
                 </Style>
+                <TextBlock x:Key="HeaderTabNameStyle" Text="{DynamicResource HeaderTabName}" />
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Tên bàn" Width="*">
+                <DataGridTemplateColumn Header="{StaticResource HeaderTabNameStyle}" Width="*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -66,8 +67,8 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition ></RowDefinition>
                 </Grid.RowDefinitions>
-                <ComboBox Margin="5,5,5,5" ItemsSource="{Binding AreaList}" DisplayMemberPath="AreaName" SelectedItem="{Binding SelectedArea,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Chọn khục vực để thêm bàn" Grid.Row="0"></ComboBox>
-                <TextBox  Margin="5,5,5,5" Text="{Binding NumberOfTables,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Nhập số lượng bàn cần thêm" Grid.Row="1"></TextBox>
+                <ComboBox Margin="5,5,5,5" ItemsSource="{Binding AreaList}" DisplayMemberPath="AreaName" SelectedItem="{Binding SelectedArea,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="{DynamicResource LabelSelAreaAddTab}" Grid.Row="0"></ComboBox>
+                <TextBox  Margin="5,5,5,5" Text="{Binding NumberOfTables,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="{DynamicResource LabelAddTabNum}" Grid.Row="1"></TextBox>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -75,9 +76,9 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Command="{Binding AddTableCommand}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="Thêm" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="0"></Button>
-                <Button Command="{Binding EditTableCommand}"  FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="Sửa" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="1"></Button>
-                <Button Command="{Binding DeleteTableCommand}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="Xóa" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="2"></Button>
+                <Button Command="{Binding AddTableCommand}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnAdd}" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="0"></Button>
+                <Button Command="{Binding EditTableCommand}"  FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnEdit}" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="1"></Button>
+                <Button Command="{Binding DeleteTableCommand}" FontSize="15" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" Content="{DynamicResource BtnDelete}" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="2"></Button>
             </Grid>
         </Grid>
     </Grid>

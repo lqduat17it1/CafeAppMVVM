@@ -13,57 +13,71 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="LoginWindow" Height="300" Width="350">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" Height="320" Width="350">
     <Window.DataContext>
         <local:AccountViewModel></local:AccountViewModel>
     </Window.DataContext>
     <Grid>
         <materialDesign:Card HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <StackPanel >
+            <StackPanel Loaded="LoginWindow_Loaded" >
                 <TextBlock
                     Margin="15 15 15 0"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                     Text="Login to Cafe Management"
                     />
-            <Grid>
-                <Grid.Resources>
-                    <Style TargetType="Grid">
-                        <Setter Property="Margin" Value="15 15 15 0" />
-                    </Style>
-                </Grid.Resources>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBox
-                    Grid.Row="0"
-                    Name="txbUsername"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    VerticalAlignment="Top"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="Username" />
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin" Value="15 15 15 0" />
+                        </Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Margin" Value="15 15 15 0" />
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBox
+                            Grid.Row="0"
+                            Name="txbUsername"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            VerticalAlignment="Top"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="Username"
+                            Text="{Binding Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <PasswordBox
+                            Grid.Row="1"
+                            Name="txbPassword"
+                            Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Password">
+                            <PasswordBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=txbPassword}" />
+                            </PasswordBox.InputBindings>
+                        </PasswordBox>
+                    </Grid>
+                    <StackPanel Grid.Row="2">
+                        <Label Content="{Binding Status,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI" Foreground="Red"> </Label>
+                        <Button
+                                Name="btnLogin"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton"
+                                Content="LOGIN"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                Command="{Binding LoginCommand}" 
+                                CommandParameter="{Binding ElementName=txbPassword}" />
+                    </StackPanel>
                 </Grid>
-                <Grid Grid.Row="1">
-                    <PasswordBox
-                    Grid.Row="1"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="Password" />
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Button
-                    Grid.Row="2"
-                    Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedSecondaryLightButton"
-                    Content="LOGIN"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Button_Click" />
-                </Grid>
-            </Grid>
             </StackPanel>
         </materialDesign:Card>
     </Grid>

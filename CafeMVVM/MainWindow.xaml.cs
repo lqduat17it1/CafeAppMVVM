@@ -27,6 +27,7 @@ namespace CafeMVVM
         {
             SwitchLanguage("en");
             InitializeComponent();
+            mainWindow = this;
         }
 
         private void Exit_Clicked(object sender, RoutedEventArgs e)
@@ -54,11 +55,13 @@ namespace CafeMVVM
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowInTaskbar = false;
             loginWindow.Show();
         }
 
         public void GrantPermission(string role)
         {
+            Window.IsEnabled = true;
             if (role.ToUpper() == "ADMIN")
             {
                 PBTab.IsEnabled = true;
@@ -68,6 +71,7 @@ namespace CafeMVVM
                 DiscountTab.IsEnabled = true;
                 StatisticTab.IsEnabled = true;
                 AccountTab.IsEnabled = true;
+                SettingTab.IsEnabled = true;
                 ExitTab.IsEnabled = true;
                 LogoutTab.IsEnabled = true;
             }
@@ -82,7 +86,25 @@ namespace CafeMVVM
                 DiscountTab.IsEnabled = false;
                 StatisticTab.IsEnabled = false;
                 AccountTab.IsEnabled = false;
+                SettingTab.IsEnabled = true;
             }
+        }
+
+        private void Logout_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            Window.IsEnabled = false;
+            PBTab.IsEnabled = false;
+            AreaTab.IsEnabled = false;
+            TableTab.IsEnabled = false;
+            MenuTab.IsEnabled = false;
+            DiscountTab.IsEnabled = false;
+            StatisticTab.IsEnabled = false;
+            AccountTab.IsEnabled = false;
+            SettingTab.IsEnabled = false;
+            ExitTab.IsEnabled = false;
+            LogoutTab.IsEnabled = false;
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
         }
     }
 }

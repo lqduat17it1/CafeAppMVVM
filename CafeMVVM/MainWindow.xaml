@@ -15,9 +15,9 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="800" Width="1300"
+        Title="Cafe Shop Management App" Height="800" Width="1300"
         Loaded="Window_Loaded">
-    <Grid>
+    <Grid IsEnabled="False" Name="Window">
         <UniformGrid Columns="1" Rows="10">
             <FrameworkElement x:Name="c1"/>
         </UniformGrid>
@@ -55,11 +55,11 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" ToolTip="Dành cho nhân viên phục vụ">
                         <materialDesign:PackIcon Kind="Coffee" />
-                        <TextBlock Text="PHỤC VỤ" Style="{StaticResource HeaderTextStyle}" />
+                        <TextBlock Text="{DynamicResource OrderTabName}" Style="{StaticResource HeaderTextStyle}" />
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/AccountPage.xaml" />
+                    <Frame Source="Views/OrderPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="AreaTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -114,7 +114,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/StatisticsPage.xaml" />
+                    <Frame Source="Views/StatisticPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="AccountTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -141,12 +141,11 @@
             </TabItem>
             <TabItem IsEnabled="False" Name="LogoutTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" ToolTip="Đăng xuất">
+                    <StackPanel Orientation="Horizontal" ToolTip="Đăng xuất" MouseLeftButtonDown="Logout_Clicked">
                         <materialDesign:PackIcon Kind="Logout" />
                         <TextBlock Text="{DynamicResource LogoutTabName}" Style="{StaticResource HeaderTextStyle}" />
                     </StackPanel>
                 </TabItem.Header>
-                <TextBlock FontSize="16" Text="Boring Text" />
             </TabItem>
             <TabItem IsEnabled="False" Name="ExitTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
                 <TabItem.Header>

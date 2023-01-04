@@ -6,10 +6,16 @@ FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\ResourceXAML\Lang.v
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\ResourceXAML\MainResource.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\AccountPage.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\AreaPage.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\ChangeTableWindow.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\DiscountPage.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\EditTableWindow.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\EmptyTableAreaWindow.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\LoginWindow.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\MenuPage.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\MergeTableWindow.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\OrderPage.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\ReceiptDetailWindow.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\SettingPage.xaml;;
-FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\StatisticsPage.xaml;;
+FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\StatisticPage.xaml;;
 FD:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\Views\TablePage.xaml;;
 

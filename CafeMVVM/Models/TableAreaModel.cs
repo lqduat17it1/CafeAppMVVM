@@ -17,5 +17,5 @@ public partial class TableAreaModel
 
     public int? NumberOfTables { get; set; }
 
-    public int? ReceiptId { get; set; }
+    public int ReceiptId { get; set; }
 }

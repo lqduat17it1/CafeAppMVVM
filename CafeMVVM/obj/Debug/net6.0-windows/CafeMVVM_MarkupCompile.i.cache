@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\University\Programming_in_Windows\repos\CafeApp\CafeMVVM\App.xaml
-12-528581877
+18-2013110246
 
-32192808173
+431266769106
 2301327070374
-MainWindow.xaml;ResourceXAML\Lang.en.xaml;ResourceXAML\Lang.vi.xaml;ResourceXAML\MainResource.xaml;Views\AccountPage.xaml;Views\AreaPage.xaml;Views\DiscountPage.xaml;Views\LoginWindow.xaml;Views\MenuPage.xaml;Views\SettingPage.xaml;Views\StatisticsPage.xaml;Views\TablePage.xaml;
+MainWindow.xaml;ResourceXAML\Lang.en.xaml;ResourceXAML\Lang.vi.xaml;ResourceXAML\MainResource.xaml;Views\AccountPage.xaml;Views\AreaPage.xaml;Views\ChangeTableWindow.xaml;Views\DiscountPage.xaml;Views\EditTableWindow.xaml;Views\EmptyTableAreaWindow.xaml;Views\LoginWindow.xaml;Views\MenuPage.xaml;Views\MergeTableWindow.xaml;Views\OrderPage.xaml;Views\ReceiptDetailWindow.xaml;Views\SettingPage.xaml;Views\StatisticPage.xaml;Views\TablePage.xaml;
 
 True
 

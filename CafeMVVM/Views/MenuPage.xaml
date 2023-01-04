@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CafeMVVM.Views"
+      xmlns:local="clr-namespace:CafeMVVM.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -15,6 +15,9 @@
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       Title="MenuPage">
+    <Page.DataContext>
+        <local:MenuViewModel></local:MenuViewModel>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -28,12 +31,17 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <TextBlock x:Key="HeaderCateNameStyle" Text="{DynamicResource HeaderCateName}" />
+                <TextBlock x:Key="HeaderDisNameStyle" Text="{DynamicResource HeaderDisName}" />
+                <TextBlock x:Key="HeaderPriceStyle" Text="{DynamicResource HeaderPrice}" />
+            </Grid.Resources>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <DataGrid Margin="5" IsReadOnly="True" ItemsSource="{Binding DanhMucThucDon,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemDanhMucTd,Mode=OneWayToSource}" AutoGenerateColumns="False">
+                <DataGrid Margin="5" IsReadOnly="True" ItemsSource="{Binding MenuCategories,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMCItem,Mode=OneWayToSource}" AutoGenerateColumns="False">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
                             <Style.Triggers>
@@ -44,7 +52,7 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Tên danh mục" Width="*">
+                        <DataGridTemplateColumn Header="{StaticResource HeaderCateNameStyle}" Width="*">
                             <DataGridTemplateColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment"  Value="Center"/>
@@ -56,7 +64,7 @@
                             </DataGridTemplateColumn.HeaderStyle>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding TENDM}"></Label>
+                                    <Label HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding Mcname}"></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -68,14 +76,14 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Margin="5" HorizontalContentAlignment="Center" Foreground="Black" Text="{Binding TenDanhMuc,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="Nhập danh mục món" VerticalAlignment="Bottom"></TextBox>
+                        <TextBox Margin="5" HorizontalContentAlignment="Center" Foreground="Black" Text="{Binding Mcname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="{DynamicResource TooltipInputCate}" VerticalAlignment="Bottom"></TextBox>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button Margin="5" Command="{Binding ThemDanhMucTdComand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Thêm" Grid.Column="0" VerticalAlignment="Bottom"></Button>
-                            <Button Margin="5" Command="{Binding XoaDanhMucTdComand}" FontFamily="Segoe UI" FontSize="15" Foreground="Red" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Xóa" Grid.Column="1" VerticalAlignment="Bottom"></Button>
+                            <Button Margin="5" Command="{Binding AddMCCommand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{DynamicResource BtnAdd}" Grid.Column="0" VerticalAlignment="Bottom"></Button>
+                            <Button Margin="5" Command="{Binding DeleteMCCommand}" FontFamily="Segoe UI" FontSize="15" Foreground="Red" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="{DynamicResource BtnDelete}" Grid.Column="1" VerticalAlignment="Bottom"></Button>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -85,7 +93,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <DataGrid Margin="5" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding DanhSachMon,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItemMon,Mode=OneWayToSource}">
+                <DataGrid Margin="5" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding MenuList,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMenuItem,Mode=OneWayToSource}">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
                             <Style.Triggers>
@@ -96,7 +104,7 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Tên món" Width="*">
+                        <DataGridTemplateColumn Header="{StaticResource HeaderDisNameStyle}" Width="*">
                             <DataGridTemplateColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -108,11 +116,11 @@
                             </DataGridTemplateColumn.HeaderStyle>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label HorizontalContentAlignment="Center" FontSize="15" FontFamily="Segoe UI" Foreground="Black" Content="{Binding TENTHUCDON}"></Label>
+                                    <Label HorizontalContentAlignment="Center" FontSize="15" FontFamily="Segoe UI" Foreground="Black" Content="{Binding MenuName}"></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Đơn giá" Width="*">
+                        <DataGridTemplateColumn Header="{StaticResource HeaderPriceStyle}" Width="*">
                             <DataGridTemplateColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -124,7 +132,7 @@
                             </DataGridTemplateColumn.HeaderStyle>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label HorizontalContentAlignment="Center" FontSize="15" FontFamily="Segoe UI" Foreground="Black" Content="{Binding DONGIA}"></Label>
+                                    <Label HorizontalContentAlignment="Center" FontSize="15" FontFamily="Segoe UI" Foreground="Black" Content="{Binding Price}"></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -137,17 +145,17 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Margin="5" Foreground="Black" HorizontalContentAlignment="Center" Grid.Row="0" Text="{Binding Mon,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="Nhập tên món" VerticalAlignment="Bottom"></TextBox>
-                        <TextBox Margin="5" Foreground="Black" HorizontalContentAlignment="Center" Text="{Binding DonGia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="Nhập đơn giá" VerticalAlignment="Bottom" ></TextBox>
+                        <TextBox Margin="5" Foreground="Black" HorizontalContentAlignment="Center" Grid.Row="0" Text="{Binding Menu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="{DynamicResource TooltipInputDiscName}" VerticalAlignment="Bottom"></TextBox>
+                        <TextBox Margin="5" Foreground="Black" HorizontalContentAlignment="Center" Text="{Binding Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"  FontSize="15" FontFamily="Segoe UI" materialDesign:HintAssist.Hint="{DynamicResource TooltipInputPrice}" VerticalAlignment="Bottom" ></TextBox>
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition ></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button  Margin="5" Command="{Binding ThemMonComand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Thêm" Grid.Column="0" VerticalAlignment="Bottom"></Button>
-                            <Button Margin="5" Command="{Binding SuaMonComand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Sửa" Grid.Column="1" VerticalAlignment="Bottom"></Button>
-                            <Button Margin="5" Command="{Binding XoaMonTdComand}" FontFamily="Segoe UI" FontSize="15" Foreground="Red" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Xóa" Grid.Column="2" VerticalAlignment="Bottom"></Button>
+                            <Button  Margin="5" Command="{Binding AddMenuCommand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="{DynamicResource BtnAdd}" Grid.Column="0" VerticalAlignment="Bottom"></Button>
+                            <Button Margin="5" Command="{Binding EditMenuCommand}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="{DynamicResource BtnEdit}" Grid.Column="1" VerticalAlignment="Bottom"></Button>
+                            <Button Margin="5" Command="{Binding DeleteMenuCommand}" FontFamily="Segoe UI" FontSize="15" Foreground="Red" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="{DynamicResource BtnDelete}" Grid.Column="2" VerticalAlignment="Bottom"></Button>
                         </Grid>
                     </Grid>
                 </Grid>

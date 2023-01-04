@@ -27,9 +27,9 @@ namespace CafeMVVM.Views
             txbUsername.Focus();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            this.Topmost = true;
         }
     }
 }

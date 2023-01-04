@@ -7,14 +7,14 @@ public partial class MenuModel
 {
     public int Mcid { get; set; }
 
-    public string? Mcname { get; set; }
+    public string Mcname { get; set; }
 
     public int MenuId { get; set; }
 
-    public string? MenuName { get; set; }
+    public string MenuName { get; set; }
 
-    public double? Price { get; set; }
+    public object Price { get; set; }
 
-    public int? Discount { get; set; }
+    public int Discount { get; set; }
 
 }

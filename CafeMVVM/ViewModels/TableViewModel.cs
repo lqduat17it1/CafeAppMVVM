@@ -10,6 +10,7 @@ using System.Windows;
 using CafeMVVM.Models;
 using CafeMVVM.DAL;
 using System.Collections;
+using CafeMVVM.Views;
 
 namespace CafeMVVM.ViewModels
 {
@@ -155,7 +156,7 @@ namespace CafeMVVM.ViewModels
             });
             EditTableCommand = new RelayCommand<object>((p) => true, (p) =>
             {
-                //WindowService.ShowFormSuaBan(false, this, (Window)p);
+                WindowUtility.ShowFormEditTable(false, this, (Window)p);
             });
 
             EditTableFormCommand = new RelayCommand<object>((p) => true, (p) =>
@@ -172,7 +173,7 @@ namespace CafeMVVM.ViewModels
                 {
                     areaDAL.EditTable(SelectedTable.TableId, TableName);
                     TableList = areaDAL.TableList(SelectedArea.AreaId);
-                    //WindowService.ShowFormSuaBan(true, this, (Window)p);
+                    WindowUtility.ShowFormEditTable(true, this, (Window)p);
                 }
             });
         }

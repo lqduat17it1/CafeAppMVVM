@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CafeMVVM.Views"
+      xmlns:local="clr-namespace:CafeMVVM.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -15,6 +15,9 @@
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       Title="DiscountPage">
+    <Page.DataContext>
+        <local:TableAreaViewModel></local:TableAreaViewModel>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -30,8 +33,8 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ComboBox ItemsSource="{Binding DanhMucThucDon}" SelectedItem="{Binding SelectedItemDMThucDonGiamGia,Mode=OneWayToSource}" DisplayMemberPath="TENDM" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="5,5,5,5" Grid.Row="0" materialDesign:HintAssist.Hint="Chọn danh mục thực đơn cần giảm giá"></ComboBox>
-            <DataGrid IsReadOnly="True" ItemsSource="{Binding ThucDon,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding ChonThucDonBanGiamGia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="5,5,5,5" Grid.Row="1">
+            <ComboBox ItemsSource="{Binding MenuCategories}" SelectedItem="{Binding SelectedItemMenuCategoryDiscount,Mode=OneWayToSource}" DisplayMemberPath="Mcname" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="5,5,5,5" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource SelCateToDiscount}"></ComboBox>
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding Menu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMenuTableDiscount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="5,5,5,5" Grid.Row="1">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Style.Triggers>
@@ -40,9 +43,12 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
+                    <TextBlock x:Key="HeaderDisNameStyle" Text="{DynamicResource HeaderDisName}" />
+                    <TextBlock x:Key="HeaderPriceStyle" Text="{DynamicResource HeaderPrice}" />
+                    <TextBlock x:Key="HeaderDiscountStyle" Text="{DynamicResource HeaderDiscount}" />
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Tên món" Width="*">
+                    <DataGridTemplateColumn Header="{StaticResource HeaderDisNameStyle}" Width="*">
                         <DataGridTemplateColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -54,11 +60,11 @@
                         </DataGridTemplateColumn.HeaderStyle>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding TENTHUCDON}" HorizontalContentAlignment="Center"></Label>
+                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding MenuName}" HorizontalContentAlignment="Center"></Label>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Đơn giá" Width="*">
+                    <DataGridTemplateColumn Header="{StaticResource HeaderPriceStyle}" Width="*">
                         <DataGridTemplateColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -70,11 +76,11 @@
                         </DataGridTemplateColumn.HeaderStyle>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding DONGIA}" HorizontalContentAlignment="Center"></Label>
+                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding Price}" HorizontalContentAlignment="Center"></Label>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Giảm giá (%)" Width="*">
+                    <DataGridTemplateColumn Header="{StaticResource HeaderDiscountStyle}" Width="*">
                         <DataGridTemplateColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -86,7 +92,7 @@
                         </DataGridTemplateColumn.HeaderStyle>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding GIAMGIA}" HorizontalContentAlignment="Center"></Label>
+                                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{Binding Discount}" HorizontalContentAlignment="Center"></Label>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -97,16 +103,16 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="Nhập số % cần giảm:"></Label>
-                <TextBox Text="{Binding PhanTramGiamGia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Grid.Column="1" ></TextBox>
+                <Label FontFamily="Segoe UI" FontSize="15" Foreground="Black" Content="{DynamicResource LabelInputDiscount}"></Label>
+                <TextBox Text="{Binding DiscountPercent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="15" Foreground="Black" Grid.Column="1" ></TextBox>
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Command="{Binding ThemGiamGia}" Style="{StaticResource MaterialDesignRaisedAccentButton}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" Content="Cập nhật" Margin="5,5,5,5" Grid.Column="0"></Button>
-                <Button  Command="{Binding GoGiamGia}" Style="{StaticResource MaterialDesignRaisedAccentButton}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" Content="Gỡ bỏ" Margin="5,5,5,5" Grid.Column="1"></Button>
+                <Button Command="{Binding AddDiscountCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" Content="{DynamicResource BtnUpdate}" Margin="5,5,5,5" Grid.Column="0"></Button>
+                <Button Command="{Binding DeleteDiscountCommand}" Style="{StaticResource MaterialDesignRaisedAccentButton}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" FontWeight="Bold" Content="{DynamicResource BtnCancel}" Margin="5,5,5,5" Grid.Column="1"></Button>
             </Grid>
         </Grid>
     </Grid>

@@ -1,0 +1,39 @@
+﻿<Window x:Class="CafeMVVM.Views.EditTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeMVVM.ViewModels"
+        mc:Ignorable="d"
+        d:DesignHeight="100" d:DesignWidth="300"
+        x:Name="WEditTable"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Edit Table" Height="120" Width="300">
+    <Window.DataContext>
+        <local:TableViewModel></local:TableViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox Text="{Binding TableName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="5,5,5,5" HorizontalContentAlignment="Center" FontSize="15" FontFamily="Segoe UI" Foreground="Black" materialDesign:HintAssist.Hint="{DynamicResource TooltipEnterTbName}"></TextBox>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding EditTableFormCommand}" CommandParameter="{Binding ElementName=WEditTable}" FontFamily="Segoe UI" FontSize="15"   Foreground="Black" Content="{DynamicResource BtnSave}" FontWeight="Bold" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5"></Button>
+            <Button x:Name="btnClose" Click="btnClose_Click" FontFamily="Segoe UI" FontSize="15"   Foreground="Black" Content="{DynamicResource BtnExit}" FontWeight="Bold" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="5,5,5,5" Grid.Column="1"></Button>
+        </Grid>
+    </Grid>
+</Window>

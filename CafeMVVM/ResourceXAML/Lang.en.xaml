@@ -4,7 +4,8 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="Lang-en">English</system:String>
     <system:String x:Key="Lang-vi">Vietnamese</system:String>
-    
+
+    <system:String x:Key="OrderTabName">ORDER</system:String>
     <system:String x:Key="AreaTabName">AREA</system:String>
     <system:String x:Key="TableTabName">TABLE</system:String>
     <system:String x:Key="MenuTabName">MENU</system:String>
@@ -47,8 +48,132 @@
     <system:String x:Key="SelectAnAreaToDelete">Select an area to delete</system:String>
     <system:String x:Key="EnterTheAreaNameToAdd">Enter the area name to add</system:String>
     <system:String x:Key="HaveNotSelectedAnAreaToAddATableYet">Have not selected an area to add a table yet</system:String>
+    <system:String x:Key="HaveNotSelectedAnArea">Have not selected an area</system:String>
     <system:String x:Key="HaveNotEnteredTheAmountYouNeedToAdd">Have not entered the amount you need to add</system:String>
     <system:String x:Key="SelectTheTableOnTheListToDelete">Select the table on the list to delete</system:String>
     <system:String x:Key="SelectTheTableOnTheListToEdit">Select the table on the list to edit</system:String>
     <system:String x:Key="TheTableNameHasNotBeenEntered">The table name has not been entered</system:String>
+
+    <!-- AddNewArlert-->
+    <system:String x:Key="TextReceipt">Receipt</system:String>
+    <system:String x:Key="TextTotalPrice">Total price</system:String>
+    <system:String x:Key="EmptyRecept">Empty Receipt</system:String>
+    <system:String x:Key="NotSelTbYet">Select Table first!</system:String>
+    <system:String x:Key="SelDisToDel">Select disc to delete!</system:String>
+    <system:String x:Key="NotSelTabToMove">Select Table to move!</system:String>
+    <system:String x:Key="NotSelMergeTb">Select merge table!</system:String>
+    <system:String x:Key="NotSelTabToMerge">Select table to be merge!</system:String>
+    <system:String x:Key="NotSelDisToDiscount">Select Food to discount!</system:String>
+    <system:String x:Key="DiscountCantBeMinus">Can not discount to minus</system:String>
+    <system:String x:Key="CantDiscountMoreThan100">Can not discount more than 100%</system:String>
+    <system:String x:Key="NotSelDisTobeUnDiscount">Select Food to Undiscount first</system:String>
+    <system:String x:Key="NotSelDate">Select day!</system:String>
+    <system:String x:Key="NotSelMonth">Select Month!</system:String>
+    <system:String x:Key="NotSelSpecificeDate">Select Specific Date!.</system:String>
+    <system:String x:Key="NotSelTimeToStatistic">Select time to statistic!</system:String>
+    <system:String x:Key="NotEnterCate">Input Category name!</system:String>
+    <system:String x:Key="SelCateToDel">Select a actegory to delete!</system:String>
+    <system:String x:Key="DelCate">Delete category</system:String>
+    <system:String x:Key="SelCateToDisplayDisc">Select category to show food</system:String>
+    <system:String x:Key="NotSelDisToAdd">Input food wanted to add!</system:String>
+    <system:String x:Key="NotInputPrice">Input price!</system:String>
+    <system:String x:Key="SelFoodToDel">Select food to delete!</system:String>
+    <system:String x:Key="SelDisToEdit">Select food to update data</system:String>
+    <system:String x:Key="SelCateToDiscount">Select menu items to be discounted</system:String>
+
+
+    <!-- Tooltip-->
+    <system:String x:Key="TooltipForWaiter">For Waiter</system:String>
+    <system:String x:Key="TooltipAddArea">Add new area</system:String>
+    <system:String x:Key="TooltipAddTabForArea">Add new table for area</system:String>
+    <system:String x:Key="TooltipAddCateAndDisc">Add new category and food</system:String>
+    <system:String x:Key="TooltipDiscount">DISCOUNT</system:String>
+    <system:String x:Key="TooltipValueGet">Statistic</system:String>
+    <system:String x:Key="TooltipManageAccount">Manage account</system:String>
+    <system:String x:Key="TooltipLogOut">Log out</system:String>
+    <system:String x:Key="TooltipShutDown">Shut down</system:String>
+    <system:String x:Key="TooltipMenu">Menu</system:String>
+    <system:String x:Key="TooltipEnterArea">Enter area name</system:String>
+    <system:String x:Key="TooltipName">Name</system:String>
+    <system:String x:Key="TooltipAccountName">Username</system:String>
+    <system:String x:Key="TooltipPass">Password</system:String>
+    <system:String x:Key="TooltipEnterTbName">Table name</system:String>
+    <system:String x:Key="TooltipInputCate">Enter Category</system:String>
+    <system:String x:Key="TooltipInputDiscName">Enter food</system:String>
+    <system:String x:Key="TooltipInputPrice">Input price</system:String>
+
+
+    <!-- Label-->
+    <system:String x:Key="LabelWaiter">WAITER</system:String>
+    <system:String x:Key="LabelArea">AREA</system:String>
+    <system:String x:Key="LabelTable">TABLE</system:String>
+    <system:String x:Key="LabelMenu">MENU</system:String>
+    <system:String x:Key="LabelDiscount">DISCOUNT</system:String>
+    <system:String x:Key="LabelValueget">STATISTIC</system:String>
+    <system:String x:Key="LabelAccount">ACCOUNT</system:String>
+    <system:String x:Key="LabelLogOut">LOG OUT</system:String>
+    <system:String x:Key="LabelShutDown">SHUT DOWN</system:String>
+    <system:String x:Key="LabelSelAreaAddTab">Select area to add table</system:String>
+    <system:String x:Key="LabelAddTabNum">Input number of table</system:String>
+    <system:String x:Key="LabelSelectTabMove">Enter table to move</system:String>
+    <system:String x:Key="LabelEmptyTab">Empty table</system:String>
+    <system:String x:Key="LabelLogin">LogIn</system:String>
+    <system:String x:Key="LabelAccountName">Username</system:String>
+    <system:String x:Key="LabelPassword">Password</system:String>
+    <system:String x:Key="LabelInputDiscount">Input discount %:</system:String>
+    <system:String x:Key="LabelSelectTbMerge">Select table want to merge</system:String>
+    <system:String x:Key="LabelMergeTb">Select merge table</system:String>
+    <system:String x:Key="LabelStatisByDisc">Sort by food</system:String>
+    <system:String x:Key="LabelGetMoney">Show incom</system:String>
+    <system:String x:Key="LabelNotice">This is notice about event</system:String>
+
+
+    <!-- Header-->
+    <system:String x:Key="HeaderTabName">Table Name</system:String>
+    <system:String x:Key="HeaderAreaName">Area Name</system:String>
+    <system:String x:Key="HeaderStatus">Status</system:String>
+    <system:String x:Key="HeaderDisc">Food</system:String>
+    <system:String x:Key="HeaderPrice">Price</system:String>
+    <system:String x:Key="HeaderNumber">Number</system:String>
+    <system:String x:Key="HeaderDiscount%">Discount (%)</system:String>
+    <system:String x:Key="HeaderDisName">Food Name</system:String>
+    <system:String x:Key="HeaderArea">Area</system:String>
+    <system:String x:Key="HeaderTbNum">Number of Table</system:String>
+    <system:String x:Key="HeaderAccName">Username</system:String>
+    <system:String x:Key="HeaderName">Name</system:String>
+    <system:String x:Key="HeaderPass">Password</system:String>
+    <system:String x:Key="HeaderPermission">Using Permission</system:String>
+    <system:String x:Key="HeaderTb">Table</system:String>
+    <system:String x:Key="HeaderTotalPrice">Total price</system:String>
+    <system:String x:Key="HeaderDay">Day</system:String>
+    <system:String x:Key="HeaderTime">Time</system:String>
+    <system:String x:Key="HeaderCateName">Category name</system:String>
+
+
+    <!-- Btn-->
+    <system:String x:Key="BtnExit">Exit</system:String>
+    <system:String x:Key="BtnMove">Move</system:String>
+    <system:String x:Key="BtnLogIn">Login</system:String>
+    <system:String x:Key="BtnUpdate">Update</system:String>
+    <system:String x:Key="BtnCancel">Cancel</system:String>
+    <system:String x:Key="BtnMerge">Merge</system:String>
+    <system:String x:Key="BtnFindEmpArea">Find emty table</system:String>
+    <system:String x:Key="BtnDelDisc">Delete food</system:String>
+    <system:String x:Key="BtnMoveTab">Move table</system:String>
+    <system:String x:Key="BtnPay">Pay</system:String>
+    <system:String x:Key="BtnAdd">Add</system:String>
+    <system:String x:Key="BtnAdmin">Admin</system:String>
+    <system:String x:Key="BtnUser">User</system:String>
+    <system:String x:Key="BtnCreate">Create</system:String>
+    <system:String x:Key="BtnResetPass">Reset password</system:String>
+    <system:String x:Key="BtnDelete">Delete</system:String>
+    <system:String x:Key="BtnSave">Save</system:String>
+    <system:String x:Key="BtnSelDate">Select date</system:String>
+    <system:String x:Key="BtnSelMonth">Select month</system:String>
+    <system:String x:Key="BtnSelSpecificDate">Select specific date</system:String>
+    <system:String x:Key="BtnByDay">By day</system:String>
+    <system:String x:Key="BtnByMonth">By Month</system:String>
+    <system:String x:Key="BtnSpecificDate">Specific date</system:String>
+    <system:String x:Key="BtnView">View</system:String>
+    <system:String x:Key="BtnEdit">Edit</system:String>
 </ResourceDictionary>
