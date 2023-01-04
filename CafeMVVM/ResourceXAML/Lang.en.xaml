@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CafeMVVM"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Lang-en">English</system:String>
+    <system:String x:Key="Lang-vi">Vietnamese</system:String>
+    
+    <system:String x:Key="AreaTabName">AREA</system:String>
+    <system:String x:Key="TableTabName">TABLE</system:String>
+    <system:String x:Key="MenuTabName">MENU</system:String>
+    <system:String x:Key="DiscountTabName">DISCOUNT</system:String>
+    <system:String x:Key="StatisticTabName">STATISTIC</system:String>
+    <system:String x:Key="AccountTabName">ACCOUNT</system:String>
+    <system:String x:Key="SettingTabName">SETTING</system:String>
+    <system:String x:Key="LogoutTabName">LOGOUT</system:String>
+    <system:String x:Key="ExitTabName">EXIT</system:String>
+    <system:String x:Key="LanguageName">Language</system:String>
+
+    <system:String x:Key="UsernameText">Username</system:String>
+    <system:String x:Key="FullNameText">Full name</system:String>
+    <system:String x:Key="PasswordText">Password</system:String>
+    <system:String x:Key="RoleText">Role</system:String>
+    <system:String x:Key="AddText">Add</system:String>
+    <system:String x:Key="ResetPasswordText">Reset Password</system:String>
+    <system:String x:Key="DeleteText">Delete</system:String>
+    <system:String x:Key="WarningText">Warning</system:String>
+    <system:String x:Key="InformationText">Information</system:String>
+    <system:String x:Key="QuestionText">Are you sure?</system:String>
+    <system:String x:Key="AreaNameText">Area Name</system:String>
+    <system:String x:Key="NumberOfTablesText">Number Of Tables</system:String>
+
+    <system:String x:Key="FullNameHasNotBeenEntered">Full name has not been entered</system:String>
+    <system:String x:Key="UsernameHasNotBeenEntered">Username has not been entered</system:String>
+    <system:String x:Key="PasswordHasNotBeenEntered">Password has not been entered</system:String>
+    <system:String x:Key="RoleHasNotBeenSelected">Role has not been selected</system:String>
+    <system:String x:Key="UsernameAlreadyExists">Username already exists</system:String>
+    <system:String x:Key="PleaseSelectTheAccountOnTheListToDelete">Please select the account on the list to delete</system:String>
+    <system:String x:Key="DeleteTheAccount">Delete the account</system:String>
+    <system:String x:Key="DeleteAccount">Delete Account</system:String>
+    <system:String x:Key="PleaseSelectTheAccountOnTheListToResetThePassword">Please select the account on the list to reset the password</system:String>
+    <system:String x:Key="PasswordWillBeResetTo">Password will be reset to</system:String>
+    <system:String x:Key="UsernameNotEntered">Username not entered</system:String>
+    <system:String x:Key="PasswordNotEntered">Password not entered</system:String>
+    <system:String x:Key="WrongPassword">Wrong password</system:String>
+    <system:String x:Key="UsernameIsIncorrect">Username is incorrect</system:String>
+    <system:String x:Key="TheNameOfTheAreaToBeAddedHasNotBeenEntered">The name of the area to be added has not been entered</system:String>
+    <system:String x:Key="SelectAnAreaToDelete">Select an area to delete</system:String>
+    <system:String x:Key="EnterTheAreaNameToAdd">Enter the area name to add</system:String>
+    <system:String x:Key="HaveNotSelectedAnAreaToAddATableYet">Have not selected an area to add a table yet</system:String>
+    <system:String x:Key="HaveNotEnteredTheAmountYouNeedToAdd">Have not entered the amount you need to add</system:String>
+    <system:String x:Key="SelectTheTableOnTheListToDelete">Select the table on the list to delete</system:String>
+    <system:String x:Key="SelectTheTableOnTheListToEdit">Select the table on the list to edit</system:String>
+    <system:String x:Key="TheTableNameHasNotBeenEntered">The table name has not been entered</system:String>
+</ResourceDictionary>

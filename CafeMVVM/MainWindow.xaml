@@ -1,0 +1,161 @@
+﻿<Window x:Class="CafeMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeMVVM"
+        xmlns:p="clr-namespace:CafeMVVM.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="800" Width="1300"
+        Loaded="Window_Loaded">
+    <Grid>
+        <UniformGrid Columns="1" Rows="10">
+            <FrameworkElement x:Name="c1"/>
+        </UniformGrid>
+        <TabControl
+                Style="{StaticResource MaterialDesignFilledTabControl}"
+                TabStripPlacement="Left">
+            <TabControl.Resources>
+                <Style TargetType="materialDesign:PackIcon">
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Width" Value="24" />
+                </Style>
+                <Style TargetType="TextBlock" x:Key="HeaderTextStyle">
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="Margin" Value="5 0 0 0" />
+                </Style>
+                <Style TargetType="materialDesign:Card">
+                    <Setter Property="Padding" Value="20" />
+                    <Setter Property="Margin" Value="20" />
+                </Style>
+                <!--<Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{TemplateBinding Content}" Height="60" Width="150" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="3" />
+                </Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>-->
+            </TabControl.Resources>
+            <TabItem IsEnabled="False" Name="PBTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Dành cho nhân viên phục vụ">
+                        <materialDesign:PackIcon Kind="Coffee" />
+                        <TextBlock Text="PHỤC VỤ" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/AccountPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="AreaTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Thêm khu vực cho quán">
+                        <materialDesign:PackIcon Kind="MapMarker" />
+                        <TextBlock Text="{DynamicResource AreaTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/AreaPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="TableTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Thêm bàn cho khu vực">
+                        <materialDesign:PackIcon Kind="TableFurniture" />
+                        <TextBlock Text="{DynamicResource TableTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/TablePage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="MenuTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Thêm danh mục và món">
+                        <materialDesign:PackIcon Kind="Silverware" />
+                        <TextBlock Text="{DynamicResource MenuTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/MenuPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="DiscountTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="GIẢM GIÁ">
+                        <materialDesign:PackIcon Kind="PercentCircle" />
+                        <TextBlock Text="{DynamicResource DiscountTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/DiscountPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="StatisticTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Thống kê danh thu">
+                        <materialDesign:PackIcon Kind="DesktopClassic" />
+                        <TextBlock Text="{DynamicResource StatisticTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/StatisticsPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="AccountTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Quản lý tài khoản">
+                        <materialDesign:PackIcon Kind="Account" />
+                        <TextBlock Text="{DynamicResource AccountTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/AccountPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="SettingTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Cài đặt">
+                        <materialDesign:PackIcon Kind="Cog" />
+                        <TextBlock Text="{DynamicResource SettingTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <materialDesign:Card>
+                    <Frame Source="Views/SettingPage.xaml" />
+                </materialDesign:Card>
+            </TabItem>
+            <TabItem IsEnabled="False" Name="LogoutTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Đăng xuất">
+                        <materialDesign:PackIcon Kind="Logout" />
+                        <TextBlock Text="{DynamicResource LogoutTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <TextBlock FontSize="16" Text="Boring Text" />
+            </TabItem>
+            <TabItem IsEnabled="False" Name="ExitTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" ToolTip="Tắt chương trình" MouseLeftButtonDown="Exit_Clicked">
+                        <materialDesign:PackIcon Kind="CloseCircleOutline" />
+                        <TextBlock Text="{DynamicResource ExitTabName}" Style="{StaticResource HeaderTextStyle}" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

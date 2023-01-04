@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CafeMVVM"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Lang-en">Tiếng Anh</system:String>
+    <system:String x:Key="Lang-vi">Tiếng Việt</system:String>
+    
+    <system:String x:Key="AreaTabName">KHU VỰC</system:String>
+    <system:String x:Key="TableTabName">BÀN</system:String>
+    <system:String x:Key="MenuTabName">THỰC ĐƠN</system:String>
+    <system:String x:Key="DiscountTabName">GIẢM GIÁ</system:String>
+    <system:String x:Key="StatisticTabName">THỐNG KÊ</system:String>
+    <system:String x:Key="AccountTabName">TÀI KHOẢN</system:String>
+    <system:String x:Key="SettingTabName">CÀI ĐẶT</system:String>
+    <system:String x:Key="LogoutTabName">ĐĂNG XUẤT</system:String>
+    <system:String x:Key="ExitTabName">THOÁT</system:String>
+    <system:String x:Key="LanguageName">Ngôn ngữ</system:String>
+
+    <system:String x:Key="UsernameText">Tên tài khoản</system:String>
+    <system:String x:Key="FullNameText">Họ tên</system:String>
+    <system:String x:Key="PasswordText">Mật khẩu</system:String>
+    <system:String x:Key="RoleText">Quyền sử dụng</system:String>
+    <system:String x:Key="AddText">Tạo</system:String>
+    <system:String x:Key="ResetPasswordText">Reset mật khẩu</system:String>
+    <system:String x:Key="DeleteText">Xóa</system:String>
+    <system:String x:Key="WarningText">Cảnh báo</system:String>
+    <system:String x:Key="InformationText">Thông tin</system:String>
+    <system:String x:Key="QuestionText">Bạn có chăc chắn không?</system:String>
+    <system:String x:Key="AreaNameText">Tên khu vực</system:String>
+    <system:String x:Key="NumberOfTablesText">Số lượng bàn</system:String>
+    <system:String x:Key="TableText">Bàn</system:String>
+
+    <system:String x:Key="FullNameHasNotBeenEntered">Chưa nhập họ tên</system:String>
+    <system:String x:Key="UsernameHasNotBeenEntered">Chưa nhập tên đăng nhập</system:String>
+    <system:String x:Key="PasswordHasNotBeenEntered">Chưa nhập mật khẩu</system:String>
+    <system:String x:Key="RoleHasNotBeenSelected">Chưa chọn quyền tài khoản</system:String>
+    <system:String x:Key="UsernameAlreadyExists">Tên đăng nhập bị trùng, xin đặt tên khác</system:String>
+    <system:String x:Key="PleaseSelectTheAccountOnTheListToDelete">Chọn tài khoản trên danh sách để xóa</system:String>
+    <system:String x:Key="DeleteTheAccount">Xóa tài khoản</system:String>
+    <system:String x:Key="DeleteAccount">Xóa tài khoản</system:String>
+    <system:String x:Key="PleaseSelectTheAccountOnTheListToResetThePassword">Chọn tài khoản trên danh sách để Reset mật khẩu.</system:String>
+    <system:String x:Key="PasswordWillBeResetTo">Mật khẩu sẽ được đặt lại là</system:String>
+    <system:String x:Key="UsernameNotEntered">Chưa điền tên đăng nhập</system:String>
+    <system:String x:Key="PasswordNotEntered">Chưa điền mật khẩu</system:String>
+    <system:String x:Key="WrongPassword">Sai mật khẩu</system:String>
+    <system:String x:Key="UsernameIsIncorrect">Tên đăng nhập không đúng</system:String>
+    <system:String x:Key="TheNameOfTheAreaToBeAddedHasNotBeenEntered">Chưa nhập tên khu vực cần thêm</system:String>
+    <system:String x:Key="SelectAnAreaToDelete">Chọn một khu vực để xóa</system:String>
+    <system:String x:Key="EnterTheAreaNameToAdd">Nhập tên khu vực cần thêm</system:String>
+    <system:String x:Key="HaveNotSelectedAnAreaToAddATableYet">Chưa chọn khu vực để thêm bàn</system:String>
+    <system:String x:Key="HaveNotEnteredTheAmountYouNeedToAdd">Chưa nhập số lượng bạn cần thêm</system:String>
+    <system:String x:Key="SelectTheTableOnTheListToDelete">Chọn bàn trên danh sách để xóa</system:String>
+    <system:String x:Key="SelectTheTableOnTheListToEdit">Chọn bàn trên danh sách để sửa</system:String>
+    <system:String x:Key="TheTableNameHasNotBeenEntered">Chưa nhập tên bàn</system:String>
+</ResourceDictionary>
