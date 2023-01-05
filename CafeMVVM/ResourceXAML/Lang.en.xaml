@@ -135,7 +135,7 @@
     <system:String x:Key="HeaderDisc">Food</system:String>
     <system:String x:Key="HeaderPrice">Price</system:String>
     <system:String x:Key="HeaderNumber">Number</system:String>
-    <system:String x:Key="HeaderDiscount%">Discount (%)</system:String>
+    <system:String x:Key="HeaderDiscount">Discount (%)</system:String>
     <system:String x:Key="HeaderDisName">Food Name</system:String>
     <system:String x:Key="HeaderArea">Area</system:String>
     <system:String x:Key="HeaderTbNum">Number of Table</system:String>

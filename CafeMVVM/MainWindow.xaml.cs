@@ -23,6 +23,7 @@ namespace CafeMVVM
     public partial class MainWindow : Window
     {
         public static MainWindow mainWindow;
+        public int currentTabIndex;
         public MainWindow()
         {
             SwitchLanguage("en");
@@ -57,6 +58,7 @@ namespace CafeMVVM
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowInTaskbar = false;
             loginWindow.Show();
+            currentTabIndex = 0;
         }
 
         public void GrantPermission(string role)
@@ -105,6 +107,43 @@ namespace CafeMVVM
             LogoutTab.IsEnabled = false;
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tabControl.SelectedIndex != currentTabIndex)
+            {
+                currentTabIndex = tabControl.SelectedIndex;
+                switch (tabControl.SelectedIndex)
+                {
+                    case 0:
+                        frmOrder.Refresh();
+                        break;
+                    case 1:
+                        frmArea.Refresh();
+                        break;
+                    case 2:
+                        frmTable.Refresh();
+                        break;
+                    case 3:
+                        frmMenu.Refresh();
+                        break;
+                    case 4:
+                        frmDiscount.Refresh();
+                        break;
+                    case 5:
+                        frmStatistic.Refresh();
+                        break;
+                    case 6:
+                        frmAccount.Refresh();
+                        break;
+                    case 7:
+                        frmSetting.Refresh();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

@@ -23,7 +23,9 @@
         </UniformGrid>
         <TabControl
                 Style="{StaticResource MaterialDesignFilledTabControl}"
-                TabStripPlacement="Left">
+                TabStripPlacement="Left" 
+                SelectionChanged="TabControl_SelectionChanged"
+                Name="tabControl">
             <TabControl.Resources>
                 <Style TargetType="materialDesign:PackIcon">
                     <Setter Property="Height" Value="24" />
@@ -53,13 +55,13 @@
             </TabControl.Resources>
             <TabItem IsEnabled="False" Name="PBTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" ToolTip="Dành cho nhân viên phục vụ">
+                    <StackPanel Orientation="Horizontal" ToolTip="Dành cho nhân viên phục vụ" >
                         <materialDesign:PackIcon Kind="Coffee" />
                         <TextBlock Text="{DynamicResource OrderTabName}" Style="{StaticResource HeaderTextStyle}" />
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/OrderPage.xaml" />
+                    <Frame Name="frmOrder" Source="Views/OrderPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="AreaTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -70,7 +72,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/AreaPage.xaml" />
+                    <Frame Name="frmArea" Source="Views/AreaPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="TableTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -81,7 +83,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/TablePage.xaml" />
+                    <Frame Name="frmTable" Source="Views/TablePage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="MenuTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -92,7 +94,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/MenuPage.xaml" />
+                    <Frame Name="frmMenu" Source="Views/MenuPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="DiscountTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -103,7 +105,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/DiscountPage.xaml" />
+                    <Frame Name="frmDiscount" Source="Views/DiscountPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="StatisticTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -114,7 +116,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/StatisticPage.xaml" />
+                    <Frame Name="frmStatistic" Source="Views/StatisticPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="AccountTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -125,7 +127,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/AccountPage.xaml" />
+                    <Frame Name="frmAccount" Source="Views/AccountPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="SettingTab" Height="{Binding ElementName=c1, Path=ActualHeight}">
@@ -136,7 +138,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <materialDesign:Card>
-                    <Frame Source="Views/SettingPage.xaml" />
+                    <Frame Name="frmSetting" Source="Views/SettingPage.xaml" />
                 </materialDesign:Card>
             </TabItem>
             <TabItem IsEnabled="False" Name="LogoutTab" Height="{Binding ElementName=c1, Path=ActualHeight}">

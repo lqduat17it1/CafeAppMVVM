@@ -39,7 +39,7 @@
         <materialDesign:ColorZone>
             <Label Height="20"></Label>
         </materialDesign:ColorZone>
-        <DataGrid Margin="5" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ChiTietHoaDon,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
+        <DataGrid Margin="5" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ReceiptDetail,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Món" Width="*">
                     <DataGridTemplateColumn.HeaderStyle>
@@ -53,7 +53,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding TENTHUCDON}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding MenuName}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -69,7 +69,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding DONGIA}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Price}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -85,7 +85,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding SOLUONG}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Quantity}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -101,7 +101,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding GIAMGIA}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Discount}" FontFamily="Segoe UI" FontSize="15" Foreground="Black" HorizontalContentAlignment="Center"></Label>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

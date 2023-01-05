@@ -105,8 +105,8 @@ namespace CafeMVVM.ViewModels
                 if (_SelectedDefaultRevenue != null)
                 {
                     ReceiptDetail = statisticDAL.LoadMenuListOfTable_Statistics(SelectedDefaultRevenue.ReceiptID);
-                    ReceiptDetailWindow chitiet = new ReceiptDetailWindow { DataContext = this };
-                    chitiet.ShowDialog();
+                    ReceiptDetailWindow detail = new ReceiptDetailWindow { DataContext = this };
+                    detail.ShowDialog();
                 }
                 OnPropertyChanged("SelectedDefaultRevenue");
             }

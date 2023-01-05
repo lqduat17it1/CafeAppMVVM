@@ -12,6 +12,7 @@ using System.Windows;
 using CafeMVVM.DAL;
 using CafeMVVM.Models;
 using CafeMVVM.Views;
+using System.Diagnostics;
 
 namespace CafeMVVM.ViewModels
 {
@@ -132,7 +133,7 @@ namespace CafeMVVM.ViewModels
                 _SelectedItemMenuCategory = value;
                 if (_SelectedItemMenuCategory != null)
                 {
-                    Menu = menuDAL.LoadMenu(_SelectedItemMenuCategory.MenuId);
+                    Menu = menuDAL.LoadMenu(_SelectedItemMenuCategory.Mcid);
                 }
                 OnPropertyChanged("SelectedItemMenuCategory");
             }
